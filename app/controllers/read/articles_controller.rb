@@ -2,6 +2,10 @@ require_dependency "read/application_controller"
 
 module Read
   class ArticlesController < ApplicationController
+    skip_before_filter :verify_authenticity_token
+    before_filter :authenticate, :only => [ :index, :create, :new ]
+
+
     # GET /articles
     # GET /articles.json
     def index
@@ -12,7 +16,7 @@ module Read
         format.json { render json: @articles }
       end
     end
-  
+
     # GET /articles/1
     # GET /articles/1.json
     def show
@@ -44,10 +48,12 @@ module Read
     # POST /articles.json
     def create
       @article = Article.new(params[:article])
+      @article.reset_token
+      @article.reset_path
   
       respond_to do |format|
         if @article.save
-          format.html { redirect_to @article, notice: 'Article was successfully created.' }
+          format.html { redirect_to @article, notice: 'Innlegget ble opprettet.' }
           format.json { render json: @article, status: :created, location: @article }
         else
           format.html { render action: "new" }
@@ -83,5 +89,15 @@ module Read
         format.json { head :no_content }
       end
     end
+
+
+private
+    def authenticate
+      user_id, password = ENV['ADMIN_USER'] || "admin", ENV['ADMIN_PASSWORD'] || "kueR10"
+      authenticate_or_request_with_http_basic do |id, password| 
+        id == user_id && password == password
+      end
+    end
+
   end
 end
