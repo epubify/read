@@ -13,6 +13,8 @@ module Read
     attr_accessible :body, :email, :leadin, :path, :title, :token
     attr_accessor :seed
 
+    before_save :calc_profile_hash
+
     def profile
       @profile ||= Gravatar.find_by_nick(self.profile_hash)
     end

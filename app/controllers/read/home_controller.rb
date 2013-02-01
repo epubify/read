@@ -5,7 +5,7 @@ module Read
     # GET /articles
     # GET /articles.json
     def index
-      @articles = Article.all
+      @articles = Article.order('created_at DESC').paginate(:page => @page, :per_page => 10)
   
       respond_to do |format|
         format.html # index.html.erb

@@ -1,33 +1,31 @@
-<h1>Listing articles</h1>
-
-<table>
-  <tr>
-    <th>Token</th>
-    <th>Title</th>
-    <th>Email</th>
-    <th>Leadin</th>
-    <th>Body</th>
-    <th>Path</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="article">
 
 <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.token %></td>
-    <td><%= article.title %></td>
-    <td><%= article.email %></td>
-    <td><%= article.leadin %></td>
-    <td><%= article.body %></td>
-    <td><%= article.path %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class="entry">
+    <% path = article_path(article) %>
+    <h3><%= article.title %></h3>  
+    <p class="byline">
+    </p>
+    <p class="byline">
+      <i><%= article.byline %></i>
+      | <%= article.created_at.to_date %>
+      | <%= path %>
+    </p>
+    <% 
+       leadin = article.leadin
+       leadin = (leadin[0..140] + "...") unless(leadin.length <= 143)
+    %>
+    <p><%= leadin %></p>
+    <p><%= link_to "Rediger", article %></p>
+  </div>
 <% end %>
-</table>
+<p><%= 
+      WillPaginate::ViewHelpers.pagination_options[:prev_label] = "&laquo; Yngre".html_safe
+      WillPaginate::ViewHelpers.pagination_options[:next_label] = "Eldre &raquo;".html_safe
+      will_paginate @articles 
+      %></p>
 
-<br />
 
-<%= link_to 'New Article', new_article_path %>
+<p><%= link_to 'Nytt innlegg', new_article_path %></p>
+
+</div>

@@ -9,7 +9,7 @@ module Read
     # GET /articles
     # GET /articles.json
     def index
-      @articles = Article.all
+      @articles = Article.order('created_at DESC').paginate(:page => @page, :per_page => 10)
       @javascript = true
   
       respond_to do |format|
@@ -52,7 +52,6 @@ module Read
       @article = Article.new(params[:article])
       @article.reset_token
       @article.reset_path
-      @article.calc_profile_hash
   
       respond_to do |format|
         if @article.save
@@ -72,7 +71,6 @@ module Read
   
       respond_to do |format|
         if @article.update_attributes(params[:article])
-          @article.calc_profile_hash
           format.html { redirect_to @article, notice: 'Article was successfully updated.' }
           format.json { head :no_content }
         else
