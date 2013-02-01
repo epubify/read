@@ -1,0 +1,28 @@
+<div>
+  <% if @byline %>
+    <h2><%= @byline.display_name %> (<%= "@" + @byline.nick %>)</h2>
+    <p><%= @byline.bio %></p>
+  <% else %>
+    <p>The user does not have a profile.</p>
+  <% end %>
+</div>
+
+
+<div>
+<% @articles.each do |article| %>
+  <div class="entry">
+    <h3><%= link_to article.title, read_url(article.path), :class => 'entry' %></h3> 
+    <p class="byline">
+      <%= article.words %> ord
+      | <%= article.created_at.to_date %>
+    </p>
+    <% 
+       leadin = article.leadin
+       leadin = (leadin[0..140] + "...") unless(leadin.length <= 143)
+    %>
+    <p><%= leadin %></p>
+    <p><%= link_to "Les mer", read_url(article.path), :class => 'entry' %></p> 
+  </div>
+<% end %>
+
+</div>

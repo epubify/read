@@ -11,6 +11,20 @@ module Read
       self.new(email)
     end
 
+    def self.find_by_nick nick
+      self.new(nick)
+    end
+
+    def self.find_by_hash h
+      self.new(h)
+    end
+
+    def self.lookup_hash email
+      digest = Digest::MD5.hexdigest(email)
+      @gravatar_hash = digest # email hash
+    end
+
+
     def nick
       preferred_username
     end
@@ -22,8 +36,13 @@ module Read
 
 
     def initialize email
-      digest = Digest::MD5.hexdigest(email)
-      @gravatar_hash = digest
+      if email.include? '@'
+        digest = Digest::MD5.hexdigest(email)
+        @gravatar_hash = digest # email hash
+      else
+        @gravatar_profile ||= get_gravatar_profile(email) # nick or hash
+        @gravatar_hash = served_hash
+      end
     end
 
 
@@ -53,6 +72,11 @@ module Read
 
     def name
       gravatar_profile && gravatar_profile['name']['formatted']
+    end
+
+
+    def served_hash
+      gravatar_profile && gravatar_profile['hash']
     end
 
 

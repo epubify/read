@@ -14,21 +14,31 @@ module Read
     attr_accessor :seed
 
     def profile
-      @profile ||= Gravatar.find_by_email(email)
+      @profile ||= Gravatar.find_by_nick(self.profile_hash)
     end
 
     def byline
       self.profile.display_name
+    rescue
+      nil
     end
 
 
     def byline_bio
       self.profile.about_me
+    rescue
+      ""
     end
 
 
     def static_page?
       false
+    end
+
+
+    def calc_profile_hash
+      self.profile_hash = Gravatar.lookup_hash email.downcase
+      self
     end
 
 

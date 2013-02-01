@@ -5,7 +5,7 @@
 <% unless(@article.static_page?) %>
 <p class="byline">
   <% if(@article.byline) %>
-    <i><%= @article.byline %></i> |
+    <i><%= link_to @article.byline, profile_url(@article.profile.nick) if @article.byline %></i> |
   <% end %>
   <%= @article.words %> ord | 
   <%= @article.created_at.to_date %>
@@ -18,8 +18,8 @@
 </div>
 <hr />
 <div class="footer">
-  <b><%= @article.byline %></b> |
-  <%= @article.profile.bio %>
+  <b><%= link_to @article.byline, profile_url(@article.profile.nick) if @article.byline %></b> |
+  <%= @article.byline_bio %>
 </div>
 
 <% unless(@article.static_page?) %>

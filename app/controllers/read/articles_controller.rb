@@ -10,6 +10,7 @@ module Read
     # GET /articles.json
     def index
       @articles = Article.all
+      @javascript = true
   
       respond_to do |format|
         format.html # index.html.erb
@@ -21,13 +22,14 @@ module Read
     # GET /articles/1.json
     def show
       @article = Article.find(params[:id])
+      @javascript = true
   
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @article }
       end
     end
-  
+
     # GET /articles/new
     # GET /articles/new.json
     def new
@@ -50,6 +52,7 @@ module Read
       @article = Article.new(params[:article])
       @article.reset_token
       @article.reset_path
+      @article.calc_profile_hash
   
       respond_to do |format|
         if @article.save
@@ -69,6 +72,7 @@ module Read
   
       respond_to do |format|
         if @article.update_attributes(params[:article])
+          @article.calc_profile_hash
           format.html { redirect_to @article, notice: 'Article was successfully updated.' }
           format.json { head :no_content }
         else
