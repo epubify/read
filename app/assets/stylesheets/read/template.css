@@ -135,11 +135,8 @@ div.logo {
     border-color: #000;
 }
 
-.logo h1 {
-    color: #000;
-}
 
-.logo a, .logo a:visited {
+.logo a, .logo a:visited, .logo h1 {
     color: #000;
 }
 
