@@ -1,0 +1,13 @@
+<!DOCTYTPE html>
+
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+
+<body>
+  <p>Velkommen som bidragsyter på <%= @domain %>. Du skal sende eposter til:</p>
+  <p><%= link_to @secret_mail, "mailto:#{@secret_mail}" %></p>
+  <p>Du kan også svare på denne eposten, eller lagre avsenderen i din kontaktliste.</p>
+</body>
+</html>

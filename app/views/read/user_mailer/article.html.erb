@@ -1,0 +1,33 @@
+<!DOCTYTPE html>
+
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+
+<body>
+  <p>Takk for ditt bidrag til <%= @domain %>. Du finner bidraget ditt her:</p>
+  <p>
+    <%=
+       path = read_url(@article)
+       link_to path, path
+       %>
+  </p>
+
+  <hr />
+
+  <h2><%= @article.title %></h2>
+
+  <p><b><%= @article.leadin %></b></p>
+
+  <p><i><%= @article.byline %></i>
+    | <%= @article.words %> ord
+    | <%= @article.created_at.to_date %>
+  </p>
+
+  <%= @article.body_as_html %>
+
+  <hr />
+  <p><small><%= link_to('Rediger', article_url(@article)) %> (ikke del denne lenken).</small></p>
+</body>
+</html>
