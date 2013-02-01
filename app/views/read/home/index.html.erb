@@ -1,0 +1,27 @@
+<div class="article">
+
+<%= render "articles/read" if @article && false %>
+
+<% @articles.each do |article| %>
+  <div class="entry">
+    <h2><%= link_to article.title, article.path, :class => 'entry' %></h2> 
+    <p class="byline">
+      <i><%= article.byline %> <!-- %= link_to article.byline, byline_url(article.profile.nick) % --></i>
+      | <%= article.words %> ord
+      | <%= article.created_at.to_date %>
+    </p>
+    <% 
+       leadin = article.leadin
+       leadin = (leadin[0..140] + "...") unless(leadin.length <= 143)
+    %>
+    <p><%= leadin %></p>
+    <p><%= link_to "Les mer", article.path, :class => 'entry' %></p> 
+  </div>
+<% end %>
+<p><!-- %= 
+      WillPaginate::ViewHelpers.pagination_options[:prev_label] = "&laquo; Yngre".html_safe
+      WillPaginate::ViewHelpers.pagination_options[:next_label] = "Eldre &raquo;"
+      will_paginate @articles 
+      % --></p>
+
+</div>

@@ -24,9 +24,9 @@
 
 <% unless(@article.static_page?) %>
 <p class="source">Kilde: <%=
-     name, port = request.env['SERVER_NAME'], request.env['SERVER_PORT']
-     name.gsub!("www.", "")
-     path = (port === '80') && "http://#{name}/#{@article.path}" || "http://#{name}:#{port}/#{@article.path}"
+     host, port = request.env['HTTP_HOST'], request.env['SERVER_PORT']
+     host.gsub!("www.", "")
+     path = read_url(@article.path)
      @source = path
      link_to path, path
   %>
