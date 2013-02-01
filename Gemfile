@@ -1,4 +1,13 @@
-source "http://rubygems.org"
+source 'http://rubygems.org'
+
+gem 'rails', '3.2.11'
+gem 'tzinfo'
+gem 'bluecloth'
+gem 'typedown'
+gem 'will_paginate'
+gem 'uuidtools'
+gem 'base32_pure'
+gem 'byline', :git => 'https://github.com/epubify/byline.git'
 
 # Declare your gem's dependencies in read.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and

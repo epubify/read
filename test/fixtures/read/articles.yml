@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  token: MyString
+  title: MyString
+  email: MyString
+  leadin: MyText
+  body: MyText
+  path: MyString
+
+two:
+  token: MyString
+  title: MyString
+  email: MyString
+  leadin: MyText
+  body: MyText
+  path: MyString
