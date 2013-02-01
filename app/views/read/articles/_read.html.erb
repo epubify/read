@@ -1,0 +1,34 @@
+<h1 class="title"><%= @article.title %></h1>
+
+<div class="leadin"><%= @article.leadin_as_html %></div>
+
+<% unless(@article.static_page?) %>
+<p class="byline">
+  <% if(@article.byline) %>
+    <i><%= @article.byline %></i> |
+  <% end %>
+  <%= @article.words %> ord | 
+  <%= @article.created_at.to_date %>
+</p>
+<% end %>
+
+
+<div class="body">
+  <%= @article.body_as_html %>
+</div>
+<hr />
+<div class="footer">
+  <b><%= @article.byline %></b> |
+  <%= @article.profile.bio %>
+</div>
+
+<% unless(@article.static_page?) %>
+<p class="source">Kilde: <%=
+     name, port = request.env['SERVER_NAME'], request.env['SERVER_PORT']
+     name.gsub!("www.", "")
+     path = (port === '80') && "http://#{name}/#{@article.path}" || "http://#{name}:#{port}/#{@article.path}"
+     @source = path
+     link_to path, path
+  %>
+</p>
+<% end %>

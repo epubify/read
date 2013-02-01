@@ -8,12 +8,27 @@ require 'cgi'
 
 module Read
   class Article < ActiveRecord::Base
+    set_primary_key :token
+
     attr_accessible :body, :email, :leadin, :path, :title, :token
     attr_accessor :seed
 
+    def profile
+      @profile ||= Gravatar.find_by_email(email)
+    end
 
     def byline
-      self.email
+      self.profile.display_name
+    end
+
+
+    def byline_bio
+      self.profile.about_me
+    end
+
+
+    def static_page?
+      false
     end
 
 
@@ -27,6 +42,27 @@ module Read
       t = self.title && self.title.tr("æøåÆØÅ", "eoaEOA").gsub(/[^0-9A-Za-z\ \-]/, '').gsub(" ", "-").downcase || ""
       self.path = Time.now.strftime("%Y/%W/#{t}/#{random[0..5]}")
       self
+    end
+
+
+    def leadin_as_html
+      Typedown::Document.new(self.leadin).to_html.html_safe
+    end
+
+
+    def body_as_html
+      Typedown::Document.new(self.body).to_html.html_safe
+    end
+
+
+    def words
+      s = ""
+      s << leadin.dup if leadin
+      s << " "
+      s << body.dup if body 
+      s.gsub!(/\w+/, 'X')
+      s.gsub!(/[^X]/, '')
+      s.length
     end
 
 

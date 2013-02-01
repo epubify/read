@@ -1,3 +1,9 @@
+<style>
+  .wide {
+    width: 98%;
+  }
+</style>
+
 <%= form_for(@article) do |f| %>
   <% if @article.errors.any? %>
     <div id="error_explanation">
@@ -12,30 +18,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :token %><br />
-    <%= f.text_field :token %>
+    <%= f.label :title, 'Tittel' %><br />
+    <%= f.text_field :title, :class => 'wide' %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :email, 'Epost' %><br />
+    <%= f.text_field :email, :class => 'wide' %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.label :leadin, 'Ingress' %><br />
+    <%= f.text_area :leadin, :rows => 2, :class => 'wide' %>
   </div>
   <div class="field">
-    <%= f.label :leadin %><br />
-    <%= f.text_area :leadin %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :path %><br />
-    <%= f.text_field :path %>
+    <%= f.label :body, 'Brødtekst' %><br />
+    <%= f.text_area :body, :rows => 10, :class => 'wide' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Lagre' %>
   </div>
 <% end %>

@@ -1,35 +1,10 @@
+<div class="menu">
+  <ul>
+    <li><%= link_to 'Endre', edit_article_path(@article), :class => 'menu' %></li>
+    <li><%= link_to 'Slett', @article, :confirm => 'Er du sikker?', :method => :delete, :class => 'menu' %></li>
+  </ul>
+</div>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Token:</b>
-  <%= @article.token %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @article.title %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @article.email %>
-</p>
-
-<p>
-  <b>Leadin:</b>
-  <%= @article.leadin %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @article.body %>
-</p>
-
-<p>
-  <b>Path:</b>
-  <%= @article.path %>
-</p>
-
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<%= render 'read' %>

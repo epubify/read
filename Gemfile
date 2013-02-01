@@ -7,7 +7,9 @@ gem 'typedown'
 gem 'will_paginate'
 gem 'uuidtools'
 gem 'base32_pure'
-# gem 'byline', :git => 'https://github.com/epubify/byline.git'
+gem 'rest-client'
+#gem 'byline', :git => 'https://github.com/epubify/byline.git'
+#gem 'gravatar'
 
 # Declare your gem's dependencies in read.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and

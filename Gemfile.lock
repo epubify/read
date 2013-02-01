@@ -78,6 +78,8 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -104,6 +106,7 @@ DEPENDENCIES
   jquery-rails
   rails (= 3.2.11)
   read!
+  rest-client
   sqlite3
   typedown
   tzinfo
