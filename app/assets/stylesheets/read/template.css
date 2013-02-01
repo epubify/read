@@ -1,0 +1,158 @@
+/** Template  **/
+
+.menu {
+    overflow:hidden;
+}
+
+.menu ul {
+    list-style-type:none;
+    margin:0;
+    padding-left:0em;
+    text-align:right;
+    float:right;
+}
+
+.menu li {
+    float:left;
+ }
+
+.menu a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.7em;
+    font-weight:bold;
+    text-transform:uppercase;
+    color:#ffffff;
+    padding: .5em 0 .5em 0;
+    display: block;
+    width:7em;
+ }
+
+.menu a:link,.menu a:visited {
+    color:#ffffff;
+    text-align:center;
+    text-decoration:none;
+}
+
+.menu a:hover,.menu a:active {
+}
+
+div.logo {
+    display:block;
+    padding: 8px;
+    padding-right: 10px;
+    padding-bottom: 8px;
+    border-style:solid;
+    border-width:thin;
+    text-align: right;
+}
+
+.logo h1 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.6em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.logo p {
+    padding: 0px;
+    margin: 0px;
+    font-size: 0.9em;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+div.body {
+    margin-top: 1.5em;
+    overflow:none;
+    word-wrap:break-word;
+}
+
+h1.title {
+}
+
+p.leadin {
+    font-weight:bold;
+    word-wrap:break-word;
+}
+
+p.byline {
+    font-size: 0.8em;
+    margin: 0;
+    margin-top: 1em;
+    word-wrap:break-word;
+}
+
+
+div.entry {
+    margin-bottom: 10px;
+}
+a.entry {
+    text-decoration: none;
+}
+a:visited.entry {
+    text-decoration: none;
+}
+h3.entry, p.entry {
+    padding: 0px;
+    margin: 0px;
+}
+p.entry_byline {
+    padding: 0px;
+    margin: 0px;
+    font-size: 0.8em;
+}
+
+
+div.article {
+    margin-top: 0em;
+}
+
+
+p.source {
+    font-size: 0.8em;
+    font-style: italic;
+    margin-top: 1em;
+}
+a.source {
+    text-decoration: none;
+}
+
+
+/** COLORS **/
+
+.menu {
+    background-color: #299549; /* Dark green. */
+}
+
+.menu a:hover,.menu a:active {
+    background-color: #BBEDA9; /* Light green. */
+}
+
+div.logo {
+    background-color: #F7FBB1; /* Light. */
+    border-color: #299549; /* Dark green. */
+}
+
+.logo h1 {
+    color: #299549; /* Dark green. */
+}
+
+.logo a {
+    color: #299549; /* Dark green. */
+}
+
+
+a.entry {
+    color: #541408; /* Dark brown. */
+}
+
+a:visited.entry {
+    color: #E7AC4F; /* Light brown. */
+}
+
+.source a, .source a:visited {
+    color: #541408; /* Dark brown. */
+}
+

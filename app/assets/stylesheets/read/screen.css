@@ -1,0 +1,105 @@
+html {
+}
+
+body {
+    -webkit-text-size-adjust:none;
+    overflow: auto;
+}
+
+div.page {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 32em;
+    font-size: 1.2em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.title {
+}
+.leadin {
+    font-weight:bold;
+}
+.byline {
+    font-size: 0.8em;
+    margin: 0;
+    margin-top: 1em;
+}
+.source a {
+}
+
+
+
+div.entry {
+    margin-bottom: 1em;
+}
+.entry h2 {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.entry h2 a {
+    text-decoration: none;
+}
+.entry h3, .entry p {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.thumb {
+    margin-top: -1em;
+    margin-left: 0.5em;
+    border-style:solid;
+    border-width:thin;
+}
+
+
+
+.share_button {
+    padding: 0.5em;
+}
+
+
+a#tweet_button {
+    padding: 2px 0.6em 2px 1.6em;
+    margin-right: 0.5em;
+    background: url('http://twitter.com/images/favicon.ico') 1px center no-repeat;
+    border: 0px solid #ccc;
+    color: #228;
+    text-decoration:none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.8em;
+}
+
+a#facebook_button {
+    padding: 2px 1em 2px 1.6em;
+    background: url('http://www.facebook.com/favicon.ico') 1px center no-repeat;
+    border: 0px solid #ccc;
+    color: #228;
+    text-decoration:none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.8em;
+}
+
+a#linkedin_button {
+    padding: 2px 1em 2px 1.6em;
+    background: url('http://www.linkedin.com/favicon.ico') 1px center no-repeat;
+    border: 0px solid #ccc;
+    color: #228;
+    text-decoration:none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.8em;
+}
+
+
+.notice {
+  color: green;
+}
+.error {
+  color: red;
+}
+
+
+

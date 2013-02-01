@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Read</title>
-  <%= stylesheet_link_tag    "read/application", :media => "all" %>
-  <%= javascript_include_tag "read/application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <% @slogan = "Your slogan" %>
+  <% @site = request.host %>
 
+  <title><%= @article && @article.title && @article.title + " - " %><%= @site %></title>
+  <meta name="viewport" content="width=device-width, user-scalable=yes">
+
+  <%= render('twitter_card', :controller => 'read/articles') if @article %>
+
+  <%= stylesheet_link_tag 'read/handheld', :media => 'handheld' %>
+  <%= stylesheet_link_tag 'read/screen', :media => 'screen' %>
+  <%= stylesheet_link_tag 'read/template', :media => 'screen, handheld' %>
+  <%= javascript_include_tag :defaults if @javascript %>
+  <%= csrf_meta_tag %>
+</head>
+
+<body>
+<div class="page">
+<div class="logo">
+  <h1><a class="logo" href="http://<%= request.host %><%= ([80, 443].include? request.port) ? "" : ':' + request.port.to_s %>"/><%= @site %></a></h1>
+  <p><i><%= @slogan %></i></p>
+</div>
+
+<% unless @custom_menu %>
+<div class="menu">
+<ul>
+  <li><%= link_to 'Forside', '/'
+    %></li>
+</ul>
+</div>
+<% end %>
+
+  <%= @thumbnail && image_tag(@thumbnail, :alt => nil, :class => "thumb") %>
 <%= yield %>
+
+<div class="logo">
+  <p><i><%= @slogan %></i></p>
+</div>
+
+<%= render('disqus', :controller => 'read/articles') if @disqus %>
+</div>
 
 </body>
 </html>
