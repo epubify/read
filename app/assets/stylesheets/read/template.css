@@ -123,36 +123,41 @@ a.source {
 /** COLORS **/
 
 .menu {
-    background-color: #299549; /* Dark green. */
+    background-color: #000;
 }
 
 .menu a:hover,.menu a:active {
-    background-color: #BBEDA9; /* Light green. */
+    background-color: #444;
 }
 
 div.logo {
-    background-color: #F7FBB1; /* Light. */
-    border-color: #299549; /* Dark green. */
+    background-color: #fff;
+    border-color: #000;
 }
 
 .logo h1 {
-    color: #299549; /* Dark green. */
+    color: #000;
 }
 
-.logo a {
-    color: #299549; /* Dark green. */
+.logo a, .logo a:visited {
+    color: #000;
+}
+
+
+a, a:visited {
+    color: #444;
 }
 
 
 a.entry {
-    color: #541408; /* Dark brown. */
+    color: #000;
 }
 
 a:visited.entry {
-    color: #E7AC4F; /* Light brown. */
+    color: #444; /* Light brown. */
 }
 
 .source a, .source a:visited {
-    color: #541408; /* Dark brown. */
+    color: #000; /* Dark brown. */
 }
 
