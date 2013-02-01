@@ -1,13 +1,3 @@
-GIT
-  remote: https://github.com/epubify/byline.git
-  revision: 8f024427ec35df555c55ca2a9830dd4e970392b7
-  specs:
-    byline (0.2.0)
-      activemodel
-      json
-      rest-client
-      simple_record
-
 PATH
   remote: .
   specs:
@@ -45,17 +35,11 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
-    aws (2.6.0)
-      http_connection
-      uuidtools
-      xml-simple
     base32_pure (0.1.0)
     bluecloth (2.2.0)
     builder (3.0.4)
-    concur (1.0.2)
     erubis (2.7.0)
     hike (1.2.1)
-    http_connection (1.4.2)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.0)
@@ -94,11 +78,6 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
-    simple_record (2.2.0)
-      aws
-      concur
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -115,7 +94,6 @@ GEM
     tzinfo (0.3.35)
     uuidtools (2.1.3)
     will_paginate (3.0.4)
-    xml-simple (1.1.2)
 
 PLATFORMS
   ruby
@@ -123,7 +101,6 @@ PLATFORMS
 DEPENDENCIES
   base32_pure
   bluecloth
-  byline!
   jquery-rails
   rails (= 3.2.11)
   read!
